@@ -5,9 +5,12 @@ class QuestionsList extends Component {
     render() {
         return (
             <div className="questions-list">
-                QuestionsList component. Below is QuestionsListItem:
-                <QuestionsListItem />
-                <QuestionsListItem />
+                <div className="button-container">
+                    <button className="btn btn-half">Unanswered Questions</button>
+                    <button className="btn btn-half-selected">Answered Questions</button>
+                    <QuestionsListItem />
+                    <QuestionsListItem />
+                </div>
             </div>
         )
     }

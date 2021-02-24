@@ -36,3 +36,18 @@ code {
   display: block;
   width: 80%;
 }
+
+.btn-half {
+  width: 50%;
+}
+
+.btn-half-selected {
+  width: 50%;
+  background-color: #fff;
+}
+
+
+.button-container {
+  width: 100%;
+}
+

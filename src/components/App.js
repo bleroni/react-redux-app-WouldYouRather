@@ -20,11 +20,6 @@ class App extends Component {
               <div className="col-sm-12">
                 <QuestionsList />
               </div>
-              <div className="col-sm-12">
-                <p>
-                  Other div...
-                </p>
-              </div>
             </div>
           </div>
         </div>
