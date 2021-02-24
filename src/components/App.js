@@ -17,17 +17,14 @@ class App extends Component {
           <Navbar />
           <div className="container">
             <div className="row">
-              <div className="col-sm-4">
+              <div className="col-sm-6">
                 <QuestionsList />
-                {JSON.stringify(this.props)}
               </div>
-              <div className="col-sm-4">
-                <h3>Column 2</h3>
-                <p>Lorem ipsum dolor..</p>
-              </div>
-              <div className="col-sm-4">
-                <h3>Column 3</h3>
-                <p>Lorem ipsum dolor..</p>
+              <div className="col-sm-6">
+                <p>
+                  a){JSON.stringify(this.props.questions['am8ehyc8byjqgar0jgpub9'].optionOne.text)}<br />
+                  b){JSON.stringify(this.props.questions['am8ehyc8byjqgar0jgpub9'].optionTwo.text)}
+                </p>
               </div>
             </div>
           </div>

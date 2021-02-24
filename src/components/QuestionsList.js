@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import QuestionsListItem from './QuestionsListItem'
 
 class QuestionsList extends Component {
     render() {
         return (
             <div>
-                Our first component of this app..
+                QuestionsList component. Below is QuestionsListItem:
+                <QuestionsListItem />
             </div>
         )
     }
