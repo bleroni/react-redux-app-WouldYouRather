@@ -31,3 +31,8 @@ code {
   margin-right: auto;
   margin-top:20px;
 }
+
+.btn-block {
+  display: block;
+  width: 80%;
+}

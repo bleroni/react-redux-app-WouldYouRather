@@ -11,20 +11,26 @@
   }
   .questions-list-item-header h5{
     padding:10px;
+    margin-left: 20px;
   }
 
   .questions-list-item-details {
     width: 100%;
+    height: max-content;
+    display: table;
 }
 
   .questions-list-item-details-user {
-      width: 30%;
-      border: 2px solid orange;
-      display:inline-block;
+      width: 25%;
+      height: max-content;
+      float:left;
+      border-right:1px solid #000;
+      margin-bottom: 10px;
   }
 
   .questions-list-item-details-question {
     width: 70%;
-    border: 2px solid orange;
-    display:inline-block;
+    height: max-content;
+    float:left;
+    margin-left:10px;
 }

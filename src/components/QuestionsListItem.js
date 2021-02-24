@@ -13,7 +13,9 @@ class QuestionsListItem extends Component {
                         <img src="https://tylermcginnis.com/would-you-rather/sarah.jpg" className="thumbnail" alt="thumbnail" />
                     </div>
                     <div className="questions-list-item-details-question">
-                        Question details...
+                        <h3>Question details...</h3>
+                        <p>Question Option One text...</p>
+                        <button className="btn btn-primary btn-block">View Poll</button>
                     </div>
                 </div>
             </div>
