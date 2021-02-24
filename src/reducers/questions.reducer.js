@@ -1,4 +1,4 @@
-import { ADD_QUESTION } from './actions/questions.actions'
+import { ADD_QUESTION } from '../actions/questions.actions'
 
 export default function questions(state = {}, action) {
     switch (action.type) {
