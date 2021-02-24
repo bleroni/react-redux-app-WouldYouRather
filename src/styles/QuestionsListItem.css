@@ -1,0 +1,30 @@
+.questions-list-item {
+    border: 1px solid brown;
+    width:80%;
+    margin: auto;
+    margin-top:10px;
+    margin-bottom: 10px;
+  }
+  
+  .questions-list-item-header {
+    background-color: #e6ffff;
+  }
+  .questions-list-item-header h5{
+    padding:10px;
+  }
+
+  .questions-list-item-details {
+    width: 100%;
+}
+
+  .questions-list-item-details-user {
+      width: 30%;
+      border: 2px solid orange;
+      display:inline-block;
+  }
+
+  .questions-list-item-details-question {
+    width: 70%;
+    border: 2px solid orange;
+    display:inline-block;
+}
