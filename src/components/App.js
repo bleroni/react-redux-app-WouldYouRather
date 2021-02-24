@@ -1,47 +1,46 @@
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import Navbar from './Navbar'
+import { handleInitialData } from '../actions/questions.actions'
 import QuestionsList from './QuestionsList'
 
-function App() {
-  return (
-    <div className="App">
-      <div class="container">
-        <nav class="navbar navbar-default">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="#">WouldYouRather App</a>
-            </div>
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">New Question</a></li>
-              <li><a href="#">Leaderboard</a></li>
-            </ul>
+class App extends Component {
+  componentDidMount() {
+    console.log('handle initial data here...')
+    handleInitialData();
+  }
 
-            <ul class="nav navbar-nav navbar-right">
-              <li class="nav-item">
-                <p class="navbar-text welcome-message">Hello, Sarah Edo</p>
-              </li>
-              <li><a href="#">Logout</a></li>
-            </ul>
-          </div>
-        </nav>
-
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-4">
-              <QuestionsList />
-            </div>
-            <div class="col-sm-4">
-              <h3>Column 2</h3>
-              <p>Lorem ipsum dolor..</p>
-            </div>
-            <div class="col-sm-4">
-              <h3>Column 3</h3>
-              <p>Lorem ipsum dolor..</p>
+  render() {
+    return (
+      <div className="App" >
+        <div className="container">
+          <Navbar />
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-4">
+                <QuestionsList />
+                {JSON.stringify(this.props)}
+              </div>
+              <div className="col-sm-4">
+                <h3>Column 2</h3>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+              <div className="col-sm-4">
+                <h3>Column 3</h3>
+                <p>Lorem ipsum dolor..</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div >
-  );
+      </div >
+    );
+  }
 }
 
-export default App;
+function mapStateToProps({ questions }) {
+  return {
+    questions
+  }
+}
+
+export default connect(mapStateToProps)(App);
