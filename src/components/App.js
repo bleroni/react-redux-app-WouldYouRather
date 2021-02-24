@@ -7,7 +7,7 @@ import QuestionsList from './QuestionsList'
 class App extends Component {
   componentDidMount() {
     console.log('handle initial data here...')
-    handleInitialData();
+    this.props.dispatch(handleInitialData());
   }
 
   render() {

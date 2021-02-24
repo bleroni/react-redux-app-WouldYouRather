@@ -5,10 +5,11 @@ import App from './components/App';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux';
 import reducers from './reducers'
+import middleware from './middleware'
 // import reportWebVitals from './reportWebVitals';
 
 // const store = create(reducer, middleware)
-const store = createStore(reducers)
+const store = createStore(reducers, middleware)
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
