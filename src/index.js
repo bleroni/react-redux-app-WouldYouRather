@@ -2,8 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
+import {createStore} from 'redux'
 // import reportWebVitals from './reportWebVitals';
 
+// const store = create(reducer, middleware)
+const store = create(reducer)
 ReactDOM.render(
   <React.StrictMode>
     <App />
