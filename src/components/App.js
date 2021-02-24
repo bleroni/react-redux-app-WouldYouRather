@@ -11,7 +11,6 @@ function App() {
               <li class="active"><a href="#">Home</a></li>
               <li><a href="#">New Question</a></li>
               <li><a href="#">Leaderboard</a></li>
-              <li><a href="#">Page 3</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
