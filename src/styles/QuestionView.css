@@ -34,3 +34,23 @@
     float:left;
     margin-left:10px;
 }
+
+.question-view-answer {
+    background-color: #99ccff;
+}
+
+
+.question-view-answer p{
+
+    padding:10px;
+}
+
+.question-view-answer-selected {
+    background-color: #99ccff;
+}
+
+
+.question-view-answer-selected p{
+    border: 5px solid black;
+    padding:10px;
+}

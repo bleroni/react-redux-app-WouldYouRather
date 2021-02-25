@@ -14,8 +14,12 @@ class QuestionView extends Component {
                     </div>
                     <div className="question-view-item-details-question">
                         <h3>Results</h3>
-                        <p>Question Option One text...</p>
-                        <button className="btn btn-primary btn-block">View Poll</button>
+                        <div className='question-view-answer-selected'>
+                            <p>be a front-end developer</p>
+                        </div>
+                        <div className='question-view-answer'>
+                            <p>be a back-end developer</p>
+                        </div>
                     </div>
                 </div>
             </div>
