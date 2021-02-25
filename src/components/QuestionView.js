@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/QuestionView.css'
+import { FiCheck } from "react-icons/fi";
+
 
 class QuestionView extends Component {
     render() {
@@ -15,7 +17,8 @@ class QuestionView extends Component {
                     <div className="question-view-item-details-question">
                         <h3>Results</h3>
                         <div className='question-view-answer-selected'>
-                            <p>be a front-end developer</p>
+                            <p>be a front-end developer
+                                <FiCheck style={{ marginLeft: '10px' }} /></p>
                         </div>
                         <div className='question-view-answer'>
                             <p>be a back-end developer</p>
