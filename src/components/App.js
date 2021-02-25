@@ -6,6 +6,7 @@ import QuestionsList from './QuestionsList'
 import NewQuestion from './QuestionNew'
 import LeaderBoard from './LeaderBoard'
 import QuestionVote from './QuestionVote'
+import QuestionView from './QuestionView'
 
 class App extends Component {
   componentDidMount() {
@@ -21,7 +22,8 @@ class App extends Component {
           <div className="container">
             <div className="row">
               <div className="col-sm-12">
-                <QuestionVote />
+                <QuestionView />
+
 
                 <hr />
                 <hr />
@@ -29,6 +31,7 @@ class App extends Component {
                 <hr />
                 <hr />
                 <hr />
+                <QuestionVote />
                 <LeaderBoard />
                 <NewQuestion />
                 <QuestionsList />
