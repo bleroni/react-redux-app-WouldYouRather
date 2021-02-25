@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import { handleInitialData } from '../actions/questions.actions'
 import QuestionsList from './QuestionsList'
 import NewQuestion from './NewQuestion'
+import LeaderBoard from './LeaderBoard'
 
 class App extends Component {
   componentDidMount() {
@@ -19,6 +20,13 @@ class App extends Component {
           <div className="container">
             <div className="row">
               <div className="col-sm-12">
+                <LeaderBoard />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
                 <NewQuestion />
                 <QuestionsList />
               </div>
