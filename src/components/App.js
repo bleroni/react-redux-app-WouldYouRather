@@ -7,6 +7,7 @@ import NewQuestion from './QuestionNew'
 import LeaderBoard from './LeaderBoard'
 import QuestionVote from './QuestionVote'
 import QuestionView from './QuestionView'
+import Login from './Login'
 
 class App extends Component {
   componentDidMount() {
@@ -22,15 +23,16 @@ class App extends Component {
           <div className="container">
             <div className="row">
               <div className="col-sm-12">
+
+                <Login />
+
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
                 <QuestionView />
-
-
-                <hr />
-                <hr />
-                <hr />
-                <hr />
-                <hr />
-                <hr />
                 <QuestionVote />
                 <LeaderBoard />
                 <NewQuestion />
