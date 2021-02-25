@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Select from 'react-select';
+import { logInUser } from '../actions/auth.actions'
 
 const selectOptions = [
 
@@ -9,8 +11,16 @@ const selectOptions = [
 ];
 
 class Login extends Component {
+    state = {
+        username: ''
+    }
     handleChange = (e) => {
-        alert(e.value);
+        this.setState({ username: e.value })
+    }
+
+    handleSubmit = () => {
+        const { dispatch } = this.props
+        dispatch(logInUser(this.state.username))
     }
     render() {
         return (
@@ -28,7 +38,7 @@ class Login extends Component {
                             placeholder="Select username..."
                         />
                         <hr />
-                        <button className="btn btn-primary">Submit</button>
+                        <button className="btn btn-primary" onClick={this.handleSubmit}>Submit</button>
                         <hr />
                     </div>
                 </div>
@@ -38,4 +48,10 @@ class Login extends Component {
     }
 }
 
-export default Login
+function mapStateToProps({ auth }) {
+    return {
+        auth
+    }
+}
+
+export default connect(mapStateToProps)(Login);

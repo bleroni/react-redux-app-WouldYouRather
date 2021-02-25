@@ -8,13 +8,12 @@ import LeaderBoard from './LeaderBoard'
 import QuestionVote from './QuestionVote'
 import QuestionView from './QuestionView'
 import Login from './Login'
-import { logInUser } from '../actions/auth.actions'
+
 
 class App extends Component {
   componentDidMount() {
     console.log('handle initial data here...')
     this.props.dispatch(handleInitialData());
-    this.props.dispatch(logInUser('bleron'))
   }
 
   render() {
@@ -25,7 +24,6 @@ class App extends Component {
           <div className="container">
             <div className="row">
               <div className="col-sm-12">
-                {JSON.stringify(this.props.auth)}
                 <Login />
 
                 <hr />
