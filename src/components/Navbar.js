@@ -1,6 +1,13 @@
 import { Component } from 'react'
+import { connect } from 'react-redux'
+import { logOutUser } from '../actions/auth.actions'
 
 class Navbar extends Component {
+  handleLogout = (e) => {
+    e.preventDefault();
+    const { dispatch } = this.props
+    dispatch(logOutUser())
+  }
   render() {
     return (
       <nav className="navbar navbar-default">
@@ -18,7 +25,7 @@ class Navbar extends Component {
             <li className="nav-item">
               <p className="navbar-text welcome-message">Hello, Sarah Edo</p>
             </li>
-            <li><a href="/dummy-link">Logout</a></li>
+            <li><a href="/dummy-link" onClick={this.handleLogout}>Logout</a></li>
           </ul>
         </div>
       </nav>
@@ -26,4 +33,11 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+function mapStateToProps({ questions, auth }) {
+  return {
+    questions,
+    auth
+  }
+}
+
+export default connect(mapStateToProps)(Navbar);

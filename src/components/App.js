@@ -3,16 +3,18 @@ import { connect } from 'react-redux'
 import Navbar from './Navbar'
 import { handleInitialData } from '../actions/questions.actions'
 import QuestionsList from './QuestionsList'
-import NewQuestion from './QuestionNew'
+import QuestionNew from './QuestionNew'
 import LeaderBoard from './LeaderBoard'
 import QuestionVote from './QuestionVote'
 import QuestionView from './QuestionView'
 import Login from './Login'
+import { logInUser } from '../actions/auth.actions'
 
 class App extends Component {
   componentDidMount() {
     console.log('handle initial data here...')
     this.props.dispatch(handleInitialData());
+    this.props.dispatch(logInUser('bleron'))
   }
 
   render() {
@@ -23,7 +25,7 @@ class App extends Component {
           <div className="container">
             <div className="row">
               <div className="col-sm-12">
-
+                {JSON.stringify(this.props.auth)}
                 <Login />
 
                 <hr />
@@ -35,7 +37,7 @@ class App extends Component {
                 <QuestionView />
                 <QuestionVote />
                 <LeaderBoard />
-                <NewQuestion />
+                <QuestionNew />
                 <QuestionsList />
               </div>
             </div>
@@ -46,9 +48,10 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({ questions }) {
+function mapStateToProps({ questions, auth }) {
   return {
-    questions
+    questions,
+    auth
   }
 }
 

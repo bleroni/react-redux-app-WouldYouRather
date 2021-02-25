@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../styles/QuestionNew.css'
 
-class NewQuestion extends Component {
+class QuestionNew extends Component {
     render() {
         return (
             <div className="new-question-container">
@@ -12,7 +12,7 @@ class NewQuestion extends Component {
                         <h5>Complete the question</h5>
                         <h4>Would you rather...</h4>
                         <form>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <input type="text" className="form-control" name="optionOne" placeholder="Enter Option One text here" />
                                 <h5>Or ...</h5>
                                 <input type="text" className="form-control" name="optionTwo" placeholder="Enter Option Two text here" />
@@ -29,4 +29,4 @@ class NewQuestion extends Component {
     }
 }
 
-export default NewQuestion;
+export default QuestionNew;

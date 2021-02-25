@@ -2,7 +2,7 @@ export const LOGIN_USER = 'LOGIN_USER'
 export const LOGOUT_USER = 'LOGOUT_USER'
 
 
-export function loginUser(username) {
+export function logInUser(username) {
     return {
         type: LOGIN_USER,
         username

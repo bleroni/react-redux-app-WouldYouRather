@@ -1,6 +1,6 @@
 import { LOGIN_USER, LOGOUT_USER } from '../actions/auth.actions'
 
-export default function questions(state = {}, action) {
+export default function auth(state = {}, action) {
     switch (action.type) {
         case LOGIN_USER:
             return {
