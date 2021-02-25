@@ -1,0 +1,35 @@
+.leaderboard-item {
+    border: 1px solid brown;
+    width:80%;
+    margin: auto;
+    margin-top:10px;
+    margin-bottom: 10px;
+  }
+
+  .leaderboard-item-details {
+    width: 100%;
+    height: max-content;
+    display: table;
+}
+
+  .leaderboard-item-details-user {
+    width: 25%;
+    height: max-content;
+    float:left;
+    border-right:1px solid #000;
+    margin-bottom: 10px;
+}
+
+.leaderboard-item-details-answers {
+  width: 47%;
+  height: max-content;
+  float:left;
+  margin-left:10px;
+}
+
+.leaderboard-item-details-score {
+    width: 25%;
+    height: max-content;
+    float:left;
+    margin-left:10px;
+  }
