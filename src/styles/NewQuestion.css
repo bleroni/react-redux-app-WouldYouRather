@@ -1,0 +1,15 @@
+.new-question-container {
+    text-align:center;
+    border: 5px solid orange;
+}
+
+.new-question-content {
+    width:70%;
+    margin: auto;
+
+}
+
+.new-question-questions {
+    text-align:left;
+
+}

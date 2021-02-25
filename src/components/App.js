@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Navbar from './Navbar'
 import { handleInitialData } from '../actions/questions.actions'
 import QuestionsList from './QuestionsList'
+import NewQuestion from './NewQuestion'
 
 class App extends Component {
   componentDidMount() {
@@ -18,6 +19,7 @@ class App extends Component {
           <div className="container">
             <div className="row">
               <div className="col-sm-12">
+                <NewQuestion />
                 <QuestionsList />
               </div>
             </div>
