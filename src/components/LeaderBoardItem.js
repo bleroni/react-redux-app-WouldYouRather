@@ -10,12 +10,13 @@ class LeaderBoardItem extends Component {
                         <img src="https://tylermcginnis.com/would-you-rather/sarah.jpg" className="thumbnail" alt="thumbnail" />
                     </div>
                     <div className="leaderboard-item-details-answers">
-                        <h3>Question details...</h3>
-                        <p>Question Option One text...</p>
-                        <button className="btn btn-primary btn-block">View Poll</button>
+                        <h3>Sarah Edo </h3>
+                        <p>Answered questions: 7</p>
+                        <p>Created questions: 3</p>
                     </div>
                     <div className="leaderboard-item-details-score">
-                        <img src="https://tylermcginnis.com/would-you-rather/sarah.jpg" className="thumbnail" alt="thumbnail" />
+                        <h3>Score</h3>
+                        <h2>10</h2>
                     </div>
                 </div>
             </div>
