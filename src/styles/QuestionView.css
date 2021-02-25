@@ -39,6 +39,11 @@
     background-color: #99ccff;
 }
 
+.question-view-answer:hover {
+    background-color: #fff;
+    cursor: pointer;
+}
+
 
 .question-view-answer p{
 
@@ -47,6 +52,11 @@
 
 .question-view-answer-selected {
     background-color: #99ccff;
+}
+
+.question-view-answer-selected:hover {
+    background-color: #fff;
+    cursor: pointer;
 }
 
 
