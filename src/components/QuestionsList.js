@@ -9,7 +9,6 @@ class QuestionsList extends Component {
                     <button className="btn btn-half">Unanswered Questions</button>
                     <button className="btn btn-half-selected">Answered Questions</button>
                     <QuestionsListItem />
-                    <QuestionsListItem />
                 </div>
             </div>
         )

@@ -12,8 +12,8 @@ import QuestionsList from './QuestionsList'
 import QuestionNew from './QuestionNew'
 import LeaderBoard from './LeaderBoard'
 import QuestionVote from './QuestionVote'
-import QuestionView from './QuestionView'
 import Login from './Login'
+import QuestionDetails from '../pages/QuestionDetails'
 
 
 class App extends Component {
@@ -27,7 +27,10 @@ class App extends Component {
       <Router>
         <div className="App" >
           <div className="container">
-            <Navbar />
+            {this.props.auth.username.length > 0 &&
+              <Navbar />
+            }
+
             <div className="container">
               <div className="row">
                 <div className="col-sm-12">
@@ -35,22 +38,14 @@ class App extends Component {
                     <Route path="/login">
                       <Login />
                     </Route>
-
+                    <ProtectedRoute exact path='/' component={QuestionsList} auth={this.props.auth} />
+                    <ProtectedRoute path='/question' component={QuestionVote} auth={this.props.auth} />
+                    <ProtectedRoute path='/new/question' component={QuestionNew} auth={this.props.auth} />
+                    <ProtectedRoute path='/leaderboard' component={LeaderBoard} auth={this.props.auth} />
+                    <ProtectedRoute path='/questions/:id' component={QuestionDetails} auth={this.props.auth} />
                   </Switch>
 
 
-                  <hr />
-                  <hr />
-                  <hr />
-                  <hr />
-                  <hr />
-                  <hr />
-                  <ProtectedRoute path='/question' component={QuestionVote} auth={this.props.auth} />
-                  <QuestionView />
-                  <QuestionVote />
-                  <LeaderBoard />
-                  <QuestionNew />
-                  <QuestionsList />
                 </div>
               </div>
             </div>

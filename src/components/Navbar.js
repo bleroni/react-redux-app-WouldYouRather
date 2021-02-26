@@ -14,19 +14,18 @@ class Navbar extends Component {
       <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            <a className="navbar-brand" href="/dummy-link">WouldYouRather App</a>
+            <Link className="navbar-brand" to="/">WouldYouRather App</Link>
           </div>
           <ul className="nav navbar-nav">
-            <li className="active"><a href="/dummy-link">Home</a></li>
-            <li><Link to="/question">New Question</Link></li>
-            <li><a href="/dummy-link">Leaderboard</a></li>
+            <li className="active"><Link to="/">Home</Link></li>
+            <li><Link to="/new/question">New Question</Link></li>
+            <li><Link to="/leaderboard">Leaderboard</Link></li>
           </ul>
 
           <ul className="nav navbar-nav navbar-right">
             <li className="nav-item">
               <p className="navbar-text welcome-message">Hello, Sarah Edo</p>
             </li>
-            <li>{JSON.stringify(this.props.auth)}</li>
             <li><a href="/dummy-link" onClick={this.handleLogout}>Logout</a></li>
           </ul>
         </div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import '../styles/QuestionsListItem.css'
 
 class QuestionsListItem extends Component {
@@ -15,7 +16,10 @@ class QuestionsListItem extends Component {
                     <div className="questions-list-item-details-question">
                         <h3>Question details...</h3>
                         <p>Question Option One text...</p>
-                        <button className="btn btn-primary btn-block">View Poll</button>
+                        <Link to="/questions/asdlfaksdflsadfd">
+                            <button className="btn btn-primary btn-block">View Poll</button>
+                        </Link>
+
                     </div>
                 </div>
             </div>
