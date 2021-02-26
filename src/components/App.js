@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 import Navbar from './Navbar'
 import { handleInitialData } from '../actions/questions.actions'
 import QuestionsList from './QuestionsList'
@@ -18,30 +23,38 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App" >
-        <div className="container">
-          <Navbar />
+      <Router>
+        <div className="App" >
           <div className="container">
-            <div className="row">
-              <div className="col-sm-12">
-                <Login />
+            <Navbar />
+            <div className="container">
+              <div className="row">
+                <div className="col-sm-12">
+                  <Switch>
+                    <Route path="/login">
+                      <Login />
+                    </Route>
 
-                <hr />
-                <hr />
-                <hr />
-                <hr />
-                <hr />
-                <hr />
-                <QuestionView />
-                <QuestionVote />
-                <LeaderBoard />
-                <QuestionNew />
-                <QuestionsList />
+                  </Switch>
+
+
+                  <hr />
+                  <hr />
+                  <hr />
+                  <hr />
+                  <hr />
+                  <hr />
+                  <QuestionView />
+                  <QuestionVote />
+                  <LeaderBoard />
+                  <QuestionNew />
+                  <QuestionsList />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div >
+        </div >
+      </Router>
     );
   }
 }
