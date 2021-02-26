@@ -6,7 +6,7 @@ import {
   Route
 } from "react-router-dom";
 import Navbar from './Navbar'
-import { handleInitialData } from '../actions/questions.actions'
+import { getQuestions } from '../actions/questions.actions'
 import ProtectedRoute from './ProtectedRoute'
 import Home from '../pages/Home'
 import QuestionNew from '../pages/QuestionNew'
@@ -19,7 +19,7 @@ import QuestionDetails from '../pages/QuestionDetails'
 class App extends Component {
   componentDidMount() {
     console.log('handle initial data here...')
-    this.props.dispatch(handleInitialData());
+    this.props.dispatch(getQuestions());
   }
 
   render() {
@@ -56,8 +56,9 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({ questions, auth }) {
+function mapStateToProps({ users, questions, auth }) {
   return {
+    users,
     questions,
     auth
   }

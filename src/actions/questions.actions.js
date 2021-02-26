@@ -11,7 +11,7 @@ function receiveQuestions(questions) {
     }
 }
 
-export function handleInitialData() {
+export function getQuestions() {
     return (dispatch) => {
         return _getQuestions()
             .then((questions) => {

@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 import Select from 'react-select';
 import { logInUser } from '../actions/auth.actions'
+import { getUsers } from '../actions/users.actions'
 
 const selectOptions = [
 
@@ -15,6 +16,12 @@ class Login extends Component {
     state = {
         username: ''
     }
+    componentDidMount() {
+        const { dispatch } = this.props
+        dispatch(getUsers());
+
+
+    }
     handleChange = (e) => {
         this.setState({ username: e.value })
     }
@@ -25,6 +32,10 @@ class Login extends Component {
         this.props.history.push('/')
     }
     render() {
+        const apiUsers = this.props.users;
+        const selectUsers = Object.keys(apiUsers).map((key) => {
+            return { value: apiUsers[key].id, label: apiUsers[key].name }
+        })
         return (
             <div className="new-question-container">
                 <div className="new-question-content">
@@ -33,9 +44,10 @@ class Login extends Component {
                     <div className="new-question-questions">
                         <h4>Welcome to the Would you rather app...</h4>
                         <p>Please sign in to continue</p>
+
                         <Select
                             width="200px"
-                            options={selectOptions}
+                            options={selectUsers}
                             onChange={this.handleChange}
                             placeholder="Select username..."
                         />
@@ -50,9 +62,10 @@ class Login extends Component {
     }
 }
 
-function mapStateToProps({ auth }) {
+function mapStateToProps({ auth, users }) {
     return {
-        auth
+        auth,
+        users
     }
 }
 
