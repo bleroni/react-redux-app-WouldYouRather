@@ -6,7 +6,6 @@ import {
   Route
 } from "react-router-dom";
 import Navbar from './Navbar'
-import { getQuestions } from '../actions/questions.actions'
 import ProtectedRoute from './ProtectedRoute'
 import Home from '../pages/Home'
 import QuestionNew from '../pages/QuestionNew'
@@ -17,10 +16,7 @@ import QuestionDetails from '../pages/QuestionDetails'
 
 
 class App extends Component {
-  componentDidMount() {
-    console.log('handle initial data here...')
-    this.props.dispatch(getQuestions());
-  }
+
 
   render() {
     return (
