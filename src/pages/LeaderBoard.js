@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import LeaderBoardItem from './LeaderBoardItem'
+import LeaderBoardItem from '../components/LeaderBoardItem'
 
 class LeaderBoard extends Component {
     render() {

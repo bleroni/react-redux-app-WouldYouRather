@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import QuestionsListItem from './QuestionsListItem'
+import QuestionsListItem from '../components/QuestionsListItem'
 
-class QuestionsList extends Component {
+class Home extends Component {
     render() {
         return (
             <div className="questions-list">
@@ -15,4 +15,4 @@ class QuestionsList extends Component {
     }
 }
 
-export default QuestionsList;
+export default Home;

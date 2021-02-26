@@ -8,11 +8,11 @@ import {
 import Navbar from './Navbar'
 import { handleInitialData } from '../actions/questions.actions'
 import ProtectedRoute from './ProtectedRoute'
-import QuestionsList from './QuestionsList'
-import QuestionNew from './QuestionNew'
-import LeaderBoard from './LeaderBoard'
+import Home from '../pages/Home'
+import QuestionNew from '../pages/QuestionNew'
+import LeaderBoard from '../pages/LeaderBoard'
 import QuestionVote from './QuestionVote'
-import Login from './Login'
+import Login from '../pages/Login'
 import QuestionDetails from '../pages/QuestionDetails'
 
 
@@ -38,7 +38,7 @@ class App extends Component {
                     <Route path="/login">
                       <Login />
                     </Route>
-                    <ProtectedRoute exact path='/' component={QuestionsList} auth={this.props.auth} />
+                    <ProtectedRoute exact path='/' component={Home} auth={this.props.auth} />
                     <ProtectedRoute path='/question' component={QuestionVote} auth={this.props.auth} />
                     <ProtectedRoute path='/new/question' component={QuestionNew} auth={this.props.auth} />
                     <ProtectedRoute path='/leaderboard' component={LeaderBoard} auth={this.props.auth} />
