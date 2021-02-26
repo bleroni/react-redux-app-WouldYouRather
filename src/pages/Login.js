@@ -5,13 +5,6 @@ import Select from 'react-select';
 import { logInUser } from '../actions/auth.actions'
 import { getUsers } from '../actions/users.actions'
 
-const selectOptions = [
-
-    { value: 'sarahedo', label: 'Sarah Edo' },
-    { value: 'tylermcginnis', label: 'Tyler McGinnis' },
-    { value: 'johndoe', label: 'John Doe' }
-];
-
 class Login extends Component {
     state = {
         username: ''
@@ -19,8 +12,6 @@ class Login extends Component {
     componentDidMount() {
         const { dispatch } = this.props
         dispatch(getUsers());
-
-
     }
     handleChange = (e) => {
         this.setState({ username: e.value })
