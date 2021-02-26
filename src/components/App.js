@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Navbar from './Navbar'
 import { handleInitialData } from '../actions/questions.actions'
+import ProtectedRoute from './ProtectedRoute'
 import QuestionsList from './QuestionsList'
 import QuestionNew from './QuestionNew'
 import LeaderBoard from './LeaderBoard'
@@ -44,6 +45,7 @@ class App extends Component {
                   <hr />
                   <hr />
                   <hr />
+                  <ProtectedRoute path='/question' component={QuestionVote} auth={this.props.auth} />
                   <QuestionView />
                   <QuestionVote />
                   <LeaderBoard />

@@ -8,7 +8,7 @@ class QuestionView extends Component {
         return (
             <div className="question-view-item">
                 <div className="question-view-item-header">
-                    <h5>Added by Sarah Edo</h5>
+                    <h5>Added by Sarah Edo - Protected route??</h5>
                 </div>
                 <div className="question-view-item-details">
                     <div className="question-view-item-details-user">
