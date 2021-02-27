@@ -7,16 +7,16 @@ class LeaderBoardItem extends Component {
             <div className="leaderboard-item">
                 <div className="leaderboard-item-details">
                     <div className="leaderboard-item-details-user">
-                        <img src="https://tylermcginnis.com/would-you-rather/sarah.jpg" className="thumbnail" alt="thumbnail" />
+                        <img src={`/images/${this.props.leaderBoardDetails.username}.png`} className="thumbnail" alt="thumbnail" />
                     </div>
                     <div className="leaderboard-item-details-answers">
-                        <h3>Sarah Edo </h3>
-                        <p>Answered questions: 7</p>
-                        <p>Created questions: 3</p>
+                        <h3>{this.props.leaderBoardDetails.name}</h3>
+                        <p>Answered questions: {this.props.leaderBoardDetails.answers}</p>
+                        <p>Created questions: {this.props.leaderBoardDetails.questions}</p>
                     </div>
                     <div className="leaderboard-item-details-score">
                         <h3>Score</h3>
-                        <h2>10</h2>
+                        <h2>{this.props.leaderBoardDetails.totalScore}</h2>
                     </div>
                 </div>
             </div>

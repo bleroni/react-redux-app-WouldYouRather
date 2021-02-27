@@ -4,7 +4,7 @@ import LeaderBoardItem from '../components/LeaderBoardItem'
 
 class LeaderBoard extends Component {
     render() {
-        const { questions } = this.props;
+        const { questions, users } = this.props;
         let stats = []
 
         Object.keys(this.props.users).map(userId => {
@@ -12,7 +12,7 @@ class LeaderBoard extends Component {
             console.log(totalAnswers)
             const totalQuestions = questions.filter((question) => question.author === userId)
             const totalScore = totalAnswers.length + totalQuestions.length
-            const finalObj = { username: userId, answers: totalAnswers.length, questions: totalQuestions.length, totalScore }
+            const finalObj = { username: userId, answers: totalAnswers.length, questions: totalQuestions.length, totalScore, name: users[userId].name }
             stats.push(finalObj);
             return ''
         })
@@ -23,10 +23,11 @@ class LeaderBoard extends Component {
 
         return (
             <div>
-                LeaderBoard component...
+                {sortedStats.map(userStats => {
+                    return <LeaderBoardItem leaderBoardDetails={userStats} />
+                })}
 
-                <LeaderBoardItem />
-                <LeaderBoardItem />
+
             </div>
         )
     }
