@@ -7,16 +7,16 @@ class QuestionsListItem extends Component {
         return (
             <div className="questions-list-item">
                 <div className="questions-list-item-header">
-                    <h5>Sarah Edo asks...</h5>
+                    <h5>{this.props.authorName} asks...</h5>
                 </div>
                 <div className="questions-list-item-details">
                     <div className="questions-list-item-details-user">
-                        <img src="https://tylermcginnis.com/would-you-rather/sarah.jpg" className="thumbnail" alt="thumbnail" />
+                        <img src={`images/${this.props.question.author}.png`} className="thumbnail" alt="thumbnail" />
                     </div>
                     <div className="questions-list-item-details-question">
-                        <h3>Question details...</h3>
-                        <p>Question Option One text...</p>
-                        <Link to="/questions/asdlfaksdflsadfd">
+                        <h3>Would You Rather</h3>
+                        <p>{this.props.question.optionOne.text}</p>
+                        <Link to={`/questions/${this.props.question.id}`} >
                             <button className="btn btn-primary btn-block">View Poll</button>
                         </Link>
 
