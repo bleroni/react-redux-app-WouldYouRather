@@ -43,7 +43,7 @@ class Login extends Component {
                             placeholder="Select username..."
                         />
                         <hr />
-                        <button className="btn btn-primary" onClick={this.handleSubmit}>Submit</button>
+                        <button className="btn btn-primary" onClick={this.handleSubmit} disabled={this.state.username === ''}>Submit</button>
                         <hr />
                     </div>
                 </div>
