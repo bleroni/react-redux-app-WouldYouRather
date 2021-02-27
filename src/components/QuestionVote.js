@@ -1,13 +1,25 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { saveQuestionVote } from '../actions/questions.actions'
 import '../styles/QuestionVote.css'
 
 class QuestionVote extends Component {
+    state = {
+        optionNumber: '',
+        questionId: this.props.questionId
+    }
     handleOnChange = (e) => {
-        alert('handling change...' + e.target.value)
+        // alert('handling change...' + e.target.value)
+        this.setState({ optionNumber: e.target.value })
     }
 
     handleSubmit = () => {
-        alert('handling on submit')
+        const { dispatch } = this.props;
+        if (this.state.optionNumber.length === 0) {
+            alert('Please choose an option')
+        }
+        dispatch(saveQuestionVote(this.props.auth.username, this.props.questionId, this.state.optionNumber))
+        alert('Selected option is: ' + this.state.optionNumber + '. questionId=' + this.props.questionId + '. User is:' + this.props.auth.username)
     }
     render() {
         return (
@@ -23,14 +35,14 @@ class QuestionVote extends Component {
                             <div className="form-check" style={{ display: 'block' }}>
                                 <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" onChange={this.handleOnChange} />
                                 <label className="form-check-label" htmlFor="exampleRadios1">
-                                    be a front-end developer
-                        </label>
+                                    {this.props.question.optionOne.text}
+                                </label>
                             </div>
                             <div className="form-check" style={{ display: 'block' }}>
                                 <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" onChange={this.handleOnChange} />
                                 <label className="form-check-label" htmlFor="exampleRadios2">
-                                    be a back-end developer
-                        </label>
+                                    {this.props.question.optionTwo.text}
+                                </label>
                             </div>
                         </form>
                         <hr />
@@ -43,4 +55,11 @@ class QuestionVote extends Component {
     }
 }
 
-export default QuestionVote
+function mapStateToProps({ questions, auth }) {
+    return {
+        questions,
+        auth
+    }
+}
+
+export default connect(mapStateToProps)(QuestionVote)
