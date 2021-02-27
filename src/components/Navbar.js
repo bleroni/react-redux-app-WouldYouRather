@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logOutUser } from '../actions/auth.actions'
 
@@ -7,7 +7,8 @@ class Navbar extends Component {
   handleLogout = (e) => {
     e.preventDefault();
     const { dispatch } = this.props
-    dispatch(logOutUser())
+    dispatch(logOutUser());
+    this.props.history.push('/')
   }
   render() {
     return (
@@ -26,7 +27,7 @@ class Navbar extends Component {
             <li className="nav-item">
               <p className="navbar-text welcome-message">Hello, Sarah Edo</p>
             </li>
-            <li><a href="/dummy-link" onClick={this.handleLogout}>Logout</a></li>
+            <li><Link to="/bleron" onClick={this.handleLogout}>Logout</Link></li>
           </ul>
         </div>
       </nav>
@@ -41,4 +42,4 @@ function mapStateToProps({ questions, auth }) {
   }
 }
 
-export default connect(mapStateToProps)(Navbar);
+export default withRouter(connect(mapStateToProps)(Navbar));
