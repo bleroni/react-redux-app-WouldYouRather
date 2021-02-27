@@ -29,7 +29,10 @@ class QuestionVote extends Component {
                 </div>
                 <div className="question-vote-details">
                     <div className="question-vote-details-user">
-                        <img src="https://tylermcginnis.com/would-you-rather/sarah.jpg" className="thumbnail" alt="thumbnail" />
+                        {this.props.question.author &&
+                            <img src={`/images/${this.props.question.author}.png`} className="thumbnail" alt="thumbnail" />
+                        }
+
                     </div>
                     <div className="question-vote-details-question">
                         <h3>Would You Rather...</h3>
