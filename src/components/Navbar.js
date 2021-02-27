@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { NavLink, Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logOutUser } from '../actions/auth.actions'
 
@@ -18,9 +18,9 @@ class Navbar extends Component {
             <Link className="navbar-brand" to="/">WouldYouRather App</Link>
           </div>
           <ul className="nav navbar-nav">
-            <li className="active"><Link to="/">Home</Link></li>
-            <li><Link to="/new/question">New Question</Link></li>
-            <li><Link to="/leaderboard">Leaderboard</Link></li>
+            <li><NavLink to="/" activeClassName="active-nav-link">Home</NavLink></li>
+            <li><NavLink to="/new/question" activeClassName="active-nav-link">New Question</NavLink></li>
+            <li><NavLink to="/leaderboard" activeClassName="active-nav-link">Leaderboard</NavLink></li>
           </ul>
 
           <ul className="nav navbar-nav navbar-right">
