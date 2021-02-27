@@ -5,7 +5,8 @@ export default function auth(state = { username: '' }, action) {
         case LOGIN_USER:
             return {
                 ...state,
-                username: action.username
+                username: action.username,
+                name: action.name
             }
         case LOGOUT_USER:
             return {

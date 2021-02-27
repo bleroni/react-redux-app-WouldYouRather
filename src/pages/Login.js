@@ -19,7 +19,7 @@ class Login extends Component {
 
     handleSubmit = () => {
         const { dispatch } = this.props
-        dispatch(logInUser(this.state.username))
+        dispatch(logInUser(this.state.username, this.props.users[this.state.username].name))
         this.props.history.push('/')
     }
     render() {
