@@ -25,7 +25,7 @@ class Navbar extends Component {
 
           <ul className="nav navbar-nav navbar-right">
             <li className="nav-item">
-              <p className="navbar-text welcome-message">Hello, Sarah Edo</p>
+              <p className="navbar-text welcome-message">Hello, {this.props.users[this.props.auth.username].name}</p>
             </li>
             <li><Link to="/bleron" onClick={this.handleLogout}>Logout</Link></li>
           </ul>
@@ -35,10 +35,11 @@ class Navbar extends Component {
   }
 }
 
-function mapStateToProps({ questions, auth }) {
+function mapStateToProps({ questions, auth, users }) {
   return {
     questions,
-    auth
+    auth,
+    users
   }
 }
 
