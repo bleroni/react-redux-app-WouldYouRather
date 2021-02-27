@@ -8,24 +8,24 @@ class QuestionView extends Component {
         return (
             <div className="question-view-item">
                 <div className="question-view-item-header">
-                    <h5>Added by Sarah Edo - Protected route??</h5>
+                    <h5>Added by {this.props.question.author}</h5>
                 </div>
                 <div className="question-view-item-details">
                     <div className="question-view-item-details-user">
-                        <img src="https://tylermcginnis.com/would-you-rather/sarah.jpg" className="thumbnail" alt="thumbnail" />
+                        <img src={`/images/${this.props.question.author}.png`} className="thumbnail" alt="thumbnail" />
                     </div>
                     <div className="question-view-item-details-question">
                         <h3>Results</h3>
                         <div className='question-view-answer-selected'>
-                            <p>be a front-end developer
+                            <p>{this.props.question.optionOne.text}
                                 <FiCheck style={{ marginLeft: '10px' }} /></p>
                         </div>
                         <div className='question-view-answer'>
-                            <p>be a back-end developer</p>
+                            <p>{this.props.question.optionTwo.text}</p>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
         )
     }
 }
