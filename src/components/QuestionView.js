@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 import '../styles/QuestionView.css'
 import { FiCheck } from "react-icons/fi";
 
@@ -16,12 +17,31 @@ class QuestionView extends Component {
                     </div>
                     <div className="question-view-item-details-question">
                         <h3>Results</h3>
-                        <div className='question-view-answer-selected'>
-                            <p>{this.props.question.optionOne.text}
-                                <FiCheck style={{ marginLeft: '10px' }} /></p>
-                        </div>
+                        {this.props.question.optionOne.votes.includes(this.props.auth.username)
+                            ?
+                            <div className='question-view-answer-selected'>
+                                <p>{this.props.question.optionOne.text}
+                                    <FiCheck style={{ marginLeft: '10px' }} /></p>
+                            </div>
+                            :
+                            <div className='question-view-answer'>
+                                <p>{this.props.question.optionOne.text}</p>
+                            </div>
+                        }
+
+
                         <div className='question-view-answer'>
-                            <p>{this.props.question.optionTwo.text}</p>
+                            {this.props.question.optionTwo.votes.includes(this.props.auth.username)
+                                ?
+                                <div className='question-view-answer-selected'>
+                                    <p>{this.props.question.optionTwo.text}
+                                        <FiCheck style={{ marginLeft: '10px' }} /></p>
+                                </div>
+                                :
+                                <div className='question-view-answer'>
+                                    <p>{this.props.question.optionTwo.text}</p>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
@@ -30,4 +50,12 @@ class QuestionView extends Component {
     }
 }
 
-export default QuestionView
+function mapStateToProps({ questions, auth, users }) {
+    return {
+        questions,
+        auth,
+        users
+    }
+}
+
+export default connect(mapStateToProps)(QuestionView)
