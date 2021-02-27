@@ -39,10 +39,10 @@ export function getQuestions() {
 export function saveQuestionVote({ authedUser, qid, optionNumber }) {
     return (dispatch) => {
         dispatch(voteForQuestion(authedUser, qid, optionNumber))
-        console.log(authedUser, qid, optionNumber)
         return _saveQuestionAnswer({ authedUser, qid, answer: optionNumber })
             .then((questions) => {
                 console.log('Saved in the API...')
+                dispatch(getQuestions())
             })
             .catch((err) => {
                 console.warn('There was an error: ' + err)

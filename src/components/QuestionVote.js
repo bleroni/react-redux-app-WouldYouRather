@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { saveQuestionVote } from '../actions/questions.actions'
 import '../styles/QuestionVote.css'
@@ -20,6 +21,7 @@ class QuestionVote extends Component {
         }
         dispatch(saveQuestionVote({ authedUser: this.props.auth.username, qid: this.props.questionId, optionNumber: this.state.optionNumber }))
         //alert('Selected option is: ' + this.state.optionNumber + '. questionId=' + this.props.questionId + '. User is:' + this.props.auth.username)
+        this.props.history.push('/')
     }
     render() {
         return (
@@ -69,4 +71,4 @@ function mapStateToProps({ questions, auth, users }) {
     }
 }
 
-export default connect(mapStateToProps)(QuestionVote)
+export default withRouter(connect(mapStateToProps)(QuestionVote))
