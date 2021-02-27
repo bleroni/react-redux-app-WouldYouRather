@@ -10,15 +10,15 @@ class Home extends Component {
     }
 
     render() {
-        const { questions } = this.props;
+        const { questions, users } = this.props;
         return (
             <div className="questions-list">
                 <div className="button-container">
                     <button className="btn btn-half">Unanswered Questions</button>
                     <button className="btn btn-half-selected">Answered Questions</button>
-                    {JSON.stringify(this.props.questions)}
-                    {questions.map(row => {
-                        return <QuestionsListItem />
+
+                    {questions.map((question) => {
+                        return <QuestionsListItem question={question} authorName={users[question.author].name} key={question.id} />
                     })}
 
                 </div>
@@ -27,9 +27,10 @@ class Home extends Component {
     }
 }
 
-function mapStateToProps({ questions }) {
+function mapStateToProps({ questions, users }) {
     return {
-        questions
+        questions,
+        users
     }
 }
 
