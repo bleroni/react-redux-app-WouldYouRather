@@ -18,12 +18,15 @@ class QuestionVote extends Component {
         if (this.state.optionNumber.length === 0) {
             alert('Please choose an option')
         }
-        dispatch(saveQuestionVote(this.props.auth.username, this.props.questionId, this.state.optionNumber))
-        alert('Selected option is: ' + this.state.optionNumber + '. questionId=' + this.props.questionId + '. User is:' + this.props.auth.username)
+        dispatch(saveQuestionVote({ authedUser: this.props.auth.username, qid: this.props.questionId, optionNumber: this.state.optionNumber }))
+        //alert('Selected option is: ' + this.state.optionNumber + '. questionId=' + this.props.questionId + '. User is:' + this.props.auth.username)
     }
     render() {
         return (
             <div className="question-vote">
+                <div className="question-view-item-header">
+                    <h5>Added by {this.props.users[this.props.question.author] && this.props.users[this.props.question.author].name}</h5>
+                </div>
                 <div className="question-vote-details">
                     <div className="question-vote-details-user">
                         <img src="https://tylermcginnis.com/would-you-rather/sarah.jpg" className="thumbnail" alt="thumbnail" />
@@ -33,15 +36,15 @@ class QuestionVote extends Component {
                         <hr />
                         <form>
                             <div className="form-check" style={{ display: 'block' }}>
-                                <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" onChange={this.handleOnChange} />
+                                <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="optionOne" onChange={this.handleOnChange} />
                                 <label className="form-check-label" htmlFor="exampleRadios1">
-                                    {this.props.question.optionOne.text}
+                                    {this.props.question.optionOne && this.props.question.optionOne.text}
                                 </label>
                             </div>
                             <div className="form-check" style={{ display: 'block' }}>
-                                <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" onChange={this.handleOnChange} />
+                                <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="optionTwo" onChange={this.handleOnChange} />
                                 <label className="form-check-label" htmlFor="exampleRadios2">
-                                    {this.props.question.optionTwo.text}
+                                    {this.props.question.optionTwo && this.props.question.optionTwo.text}
                                 </label>
                             </div>
                         </form>
@@ -55,10 +58,11 @@ class QuestionVote extends Component {
     }
 }
 
-function mapStateToProps({ questions, auth }) {
+function mapStateToProps({ questions, auth, users }) {
     return {
         questions,
-        auth
+        auth,
+        users
     }
 }
 
