@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import {connect} from 'react-redux'
-import { generateUID } from '../utils/_DATA'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { saveQuestion } from '../actions/questions.actions'
 import '../styles/QuestionNew.css'
 
 class QuestionNew extends Component {
     state = {
-        optionOne: '',
-        optionTwo: ''
+        optionOneText: '',
+        optionTwoText: ''
     }
 
     handleOnChange(e) {
@@ -16,13 +17,15 @@ class QuestionNew extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        const { dispatch } = this.props;
         const newObject = {
-            id: generateUID(),
-            optionOne: this.state.optionOne,
-            optionTwo: this.state.optionTwo,
-            author: this.props.auth.username
+            optionOneText: this.state.optionOneText,
+            optionTwoText: this.state.optionTwoText,
+            author: this.props.auth.username,
+            timestamp: new Date()
         }
-        alert('submitting...' + JSON.stringify(newObject))
+        dispatch(saveQuestion(newObject))
+        this.props.history.push('/')
     }
 
     render() {
@@ -38,14 +41,14 @@ class QuestionNew extends Component {
                         <h4>Would you rather...</h4>
                         <form>
                             <div className="form-group">
-                                <input type="text" onChange={(e) => this.handleOnChange(e)} className="form-control" name="optionOne" placeholder="Enter Option One text here" />
+                                <input type="text" onChange={(e) => this.handleOnChange(e)} className="form-control" name="optionOneText" placeholder="Enter Option One text here" />
                                 <h5>Or ...</h5>
-                                <input type="text" onChange={(e) => this.handleOnChange(e)} className="form-control" name="optionTwo" placeholder="Enter Option Two text here" />
+                                <input type="text" onChange={(e) => this.handleOnChange(e)} className="form-control" name="optionTwoText" placeholder="Enter Option Two text here" />
                                 <hr />
                                 <button
                                     className="btn btn-primary btn-block"
                                     onClick={this.handleSubmit}
-                                    disabled={this.state.optionOne.length === 0 || this.state.optionTwo.length === 0}
+                                    disabled={this.state.optionOneText.length === 0 || this.state.optionTwoText.length === 0}
                                 >
                                     Submit
                                 </button>
@@ -67,4 +70,4 @@ function mapStateToProps({ auth }) {
     }
 }
 
-export default connect(mapStateToProps)(QuestionNew)
+export default withRouter(connect(mapStateToProps)(QuestionNew))
