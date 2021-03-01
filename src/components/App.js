@@ -13,12 +13,13 @@ import LeaderBoard from '../pages/LeaderBoard'
 import QuestionVote from './QuestionVote'
 import Login from '../pages/Login'
 import QuestionDetails from '../pages/QuestionDetails'
-
+import Error404 from '../pages/Error404'
 
 class App extends Component {
 
 
   render() {
+
     return (
       <Router>
         <div className="App" >
@@ -34,6 +35,8 @@ class App extends Component {
                     <Route path="/login">
                       <Login />
                     </Route>
+                    <Route path="/404" component={Error404} />
+
                     <ProtectedRoute exact path='/' component={Home} auth={this.props.auth} />
                     <ProtectedRoute path='/question' component={QuestionVote} auth={this.props.auth} />
                     <ProtectedRoute path='/new/question' component={QuestionNew} auth={this.props.auth} />

@@ -19,14 +19,14 @@ class QuestionVote extends Component {
         if (this.state.optionNumber.length === 0) {
             alert('Please choose an option')
         }
-        dispatch(saveQuestionVote({ authedUser: this.props.auth.username, qid: this.props.questionId, optionNumber: this.state.optionNumber, index:this.props.index }))
+        dispatch(saveQuestionVote({ authedUser: this.props.auth.username, qid: this.props.questionId, optionNumber: this.state.optionNumber, index: this.props.index }))
         //alert('Selected option is: ' + this.state.optionNumber + '. questionId=' + this.props.questionId + '. User is:' + this.props.auth.username)
         this.props.history.push('/')
     }
     render() {
         return (
             <div className="question-vote">
-                {this.props.index} AAAAAAAAA
+
                 <div className="question-view-item-header">
                     <h5>Added by {this.props.users[this.props.question.author] && this.props.users[this.props.question.author].name}</h5>
                 </div>

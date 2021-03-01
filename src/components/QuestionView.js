@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import '../styles/QuestionView.css'
 import { FiCheck } from "react-icons/fi";
 
 
 class QuestionView extends Component {
     render() {
+        const { users } = this.props
         return (
             <div className="question-view-item">
                 <div className="question-view-item-header">
-                    <h5>Added by {this.props.question.author}</h5>
+                    <h5>Added by {users[this.props.question.author].name}</h5>
                 </div>
                 <div className="question-view-item-details">
                     <div className="question-view-item-details-user">
